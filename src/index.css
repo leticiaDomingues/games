@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "DataControl";
+    src: url(./fonts/data-latin.ttf);
+}
+    
+     
+
+body {
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    font-family: 'DataControl';
+}
+

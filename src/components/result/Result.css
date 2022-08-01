@@ -1,0 +1,54 @@
+.Result {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Result .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Result .cards .wrapper {
+    background-color: #c40000;
+    padding: 35px 20px;
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.Result .cards .wrapper.winner {
+    background-color: #09b819;
+}
+
+.Result .cards .wrapper img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.Result p {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.Result button {
+    font-family: 'DataControl';
+    width: 250px;
+    height: 60px;
+    background-color: #09b819;
+    font-size: 24px;
+    color: white;
+    letter-spacing: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+.Game button:hover {
+    background-color: #078512;
+}
