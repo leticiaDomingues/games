@@ -5,9 +5,9 @@ export enum CardType {
 };
 
 const CardImagePath = new Map<CardType, string>([
-    [CardType.ROCK, './rock.png'],
-    [CardType.PAPER, './paper.png'],
-    [CardType.SCISSORS, './scissors.png']
+    [CardType.ROCK, 'rock.png'],
+    [CardType.PAPER, 'paper.png'],
+    [CardType.SCISSORS, 'scissors.png']
 ]);
 
 const CardBeats = new Map<CardType, CardType>([
