@@ -6,12 +6,12 @@ import { useState } from "react";
 import { CardModel, CardType } from "./card/CardModel.ts";
 import { Page } from "./PageModel.ts";
 import Result from "./result/Result";
+import { MatchResult, getMatchResult } from "./result/ResultModel.ts";
 
 const App = () => {
     const [score, setScore] = useState({ computer: 0, player: 0});
     const [page, setPage] = useState(Page.GAME);
-    const [computerCard, setComputerCard] = useState();
-    const [playerCard, setPlayerCard] = useState();
+    const [matchResult, setMatchResult] = useState({ playerCard: null, computerCard: null, result: null});
 
     const cards = [ 
         new CardModel(CardType.ROCK),
@@ -23,13 +23,15 @@ const App = () => {
 
     const playCard = playerCard => {
         const computerCard = generateComputerCard();
-        if (playerCard.beats(computerCard)) {
+        const result = getMatchResult(playerCard, computerCard);
+
+        if (result === MatchResult.PLAYER_WINNER) {
             setScore({...score, player: score.player+1});
-        } else {
+        } else if (result === MatchResult.COMPUTER_WINNER) {
             setScore({...score, computer: score.computer+1});
         }
-        setComputerCard(computerCard);
-        setPlayerCard(playerCard);
+
+        setMatchResult({ playerCard, computerCard, result });
         setPage(Page.RESULT);
     };
 
@@ -40,7 +42,7 @@ const App = () => {
         <Logo />
         { page === Page.GAME ?
             <Game cards={cards} playCard={playCard} /> :
-            <Result playAgain={playAgain} computerCard={computerCard} playerCard={playerCard}/>}
+            <Result playAgain={playAgain} matchResult={matchResult} />}
         <Scoreboard score={score} />
     </div>
    );

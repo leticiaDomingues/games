@@ -13,7 +13,7 @@ const CardImagePath = new Map<CardType, string>([
 const CardBeats = new Map<CardType, CardType>([
     [CardType.ROCK, CardType.SCISSORS],
     [CardType.PAPER, CardType.ROCK],
-    [CardType.SCISSORS, CardType.ROCK]
+    [CardType.SCISSORS, CardType.PAPER]
 ]);
 
 export class CardModel {
