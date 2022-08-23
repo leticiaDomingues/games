@@ -1,0 +1,13 @@
+.games {
+    height: 100vh;
+    background-image: url('../../../public/moon2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.games > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}

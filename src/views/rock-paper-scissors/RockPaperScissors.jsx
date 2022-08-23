@@ -1,14 +1,13 @@
-import "./App.css";
-import Logo from "./logo/Logo";
+import Logo from "../../components/logo/Logo";
 import Game from "./game/Game";
-import Scoreboard from "./scoreboard/Scoreboard";
+import Scoreboard from "../../components/scoreboard/Scoreboard";
 import { useState } from "react";
 import { CardModel, CardType } from "./card/CardModel.ts";
-import { Page } from "./PageModel.ts";
+import { Page } from "../../model/PageModel.ts";
 import Result from "./result/Result";
 import { MatchResult, getMatchResult } from "./result/ResultModel.ts";
 
-const App = () => {
+const RockPaperScissors = () => {
     const [score, setScore] = useState({ computer: 0, player: 0});
     const [page, setPage] = useState(Page.GAME);
     const [matchResult, setMatchResult] = useState({ playerCard: null, computerCard: null, result: null});
@@ -38,14 +37,14 @@ const App = () => {
     const playAgain = () => setPage(Page.GAME);
     
    return (
-    <div className="App">
-        <Logo />
+    <>
+        <Logo image="rock-paper-scissors.png"/>
         { page === Page.GAME ?
             <Game cards={cards} playCard={playCard} /> :
             <Result playAgain={playAgain} matchResult={matchResult} />}
         <Scoreboard score={score} />
-    </div>
+    </>
    );
 };
 
-export default App;
+export default RockPaperScissors;

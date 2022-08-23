@@ -1,0 +1,45 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('../../../public/moon2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    animation: 3s anim-lineUp ease-out normal;
+    font-size: 100px;
+    margin-left: 20px;
+    letter-spacing: 5px;
+}
+@keyframes anim-lineUp {
+    0% {
+        opacity: 0;
+        transform: translateY(80%);
+    }
+    20% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@media (max-width: 778px) {
+    h1 {
+        font-size: 70px;
+    }
+}
+
+@media (max-width: 441px) {
+    h1 {
+        font-size: 50px;
+    }
+}

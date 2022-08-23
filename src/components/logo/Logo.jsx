@@ -1,8 +1,8 @@
 import "./Logo.css";
 
-const Logo = () => (
+const Logo = props => (
     <div className="Logo">
-        <img src="/rock-paper-scissors/logo.png" alt="logo" />
+        <img src={`${process.env.PUBLIC_URL}/${props.image}`} alt="logo" />
     </div>
 );
 

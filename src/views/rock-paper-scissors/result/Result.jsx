@@ -10,11 +10,11 @@ const Result = props => {
         <div className="Result">
             <div className="cards">
                 <div className={matchResult.result === MatchResult.COMPUTER_WINNER ? 'wrapper winner' : 'wrapper'}>
-                    <img className="icon" src="/rock-paper-scissors/robot.png" alt=""/>
+                    <img className="icon" src={`${process.env.PUBLIC_URL}/robot.png`} alt=""/>
                     <Card width={cardSize.width} height={cardSize.height} selectable={false} card={matchResult.computerCard} />
                 </div>
                 <div className={matchResult.result === MatchResult.PLAYER_WINNER ? 'wrapper winner' : 'wrapper'}>
-                    <img className="icon" src="/rock-paper-scissors/user.png" alt=""/>
+                    <img className="icon" src={`${process.env.PUBLIC_URL}/user.png`} alt=""/>
                     <Card width={cardSize.width} height={cardSize.height} selectable={false} card={matchResult.playerCard} />
                 </div>
             </div>

@@ -17,7 +17,7 @@ const Card = props => {
             onClick={selectCard}
             style={{width, height}}
         >
-            <img src={'/rock-paper-scissors/' + card.imagePath} alt="" />
+            <img src={`${process.env.PUBLIC_URL}/${card.imagePath}`} alt="" />
         </div>
     );
 };
