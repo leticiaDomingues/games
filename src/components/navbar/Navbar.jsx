@@ -1,14 +1,25 @@
 import "./Navbar.css"
 import { NavLink } from 'react-router-dom'
 
-const Navbar = props => {
+const Navbar = () => {
+    const items = [
+        { path: '/', label: 'Home'},
+        { path: '/list', label: 'Jogos'},
+        { path: '/about', label: 'Sobre'}
+    ]
     return (
         <nav className="navbar">
             <h2>Joguinhos</h2>
             <ul>
-                <li><NavLink to="/" className={({ isActive }) => isActive ? 'active' : '' }>Home</NavLink></li>
-                <li><NavLink to="/list" className={({ isActive }) => isActive ? 'active' : '' }>Jogos</NavLink></li>
-                <li><NavLink to="/about" className={({ isActive }) => isActive ? 'active' : '' }>Sobre</NavLink></li>
+                {
+                    items.map(i => 
+                        <li key={i.path}>
+                            <NavLink className={({ isActive }) => isActive ? 'active' : '' } to={i.path}>
+                                {i.label}
+                            </NavLink>
+                        </li>
+                    )
+                }
             </ul>
         </nav>
     )

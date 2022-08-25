@@ -1,0 +1,51 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    margin-bottom: 40px;
+}
+
+.board .cell {
+    border: 4px solid #fff;
+    cursor: pointer;
+}
+
+.board .cell.-selected-x,
+.board .cell.-selected-o {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70px;
+    cursor: default;
+}
+
+.board .cell.-selected-o {
+    background-image: url('../../../../public/tic-tac-toe/o2.png');
+}
+
+.board .cell.-selected-x {
+    background-image: url('../../../../public/tic-tac-toe/x2.png');
+}
+
+.board .cell-1,
+.board .cell-2,
+.board .cell-3 {
+    border-top: none;
+}
+
+.board .cell-1,
+.board .cell-4,
+.board .cell-7 {
+    border-left: none;
+}
+
+.board .cell-3,
+.board .cell-6,
+.board .cell-9 {
+    border-right: none;
+}
+
+.board .cell-7,
+.board .cell-8,
+.board .cell-9 {
+    border-bottom: none;
+}

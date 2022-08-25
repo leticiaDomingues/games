@@ -1,0 +1,39 @@
+.tic-tac-toe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tic-tac-toe .scoreboard-wrapper {
+    width: 100%;
+}
+
+.tic-tac-toe .result {
+    font-size: 4rem;
+    text-align: center;
+}
+
+.tic-tac-toe .result p {
+    margin: 0;
+}
+
+.tic-tac-toe .result button {
+    font-family: 'DataControl';
+    width: 250px;
+    height: 60px;
+    background-color: #09b819;
+    font-size: 24px;
+    color: white;
+    letter-spacing: 4px;
+    margin: 50px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tic-tac-toe .result button:not(.disabled):hover {
+    background-color: #078512;
+}
+.tic-tac-toe .result button.disabled {
+    background-color: #adadad;
+    cursor: not-allowed;
+}

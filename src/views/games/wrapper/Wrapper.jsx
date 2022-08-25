@@ -3,10 +3,11 @@ import "./Wrapper.css"
 import Logo from "../../../components/logo/Logo"
 
 const Wrapper = props => {
+    const {routerPath, logo} = props.game
     return (
-        <Link to={`/${props.game}`}>
+        <Link to={routerPath}>
             <div className="game-wrapper">
-                <Logo image={`${props.game}.png`}/>
+                <Logo image={logo}/>
             </div>
         </Link>
     )
