@@ -1,4 +1,5 @@
 .board {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(3, 120px);
     grid-template-rows: repeat(3, 120px);
@@ -48,4 +49,47 @@
 .board .cell-8,
 .board .cell-9 {
     border-bottom: none;
+}
+
+.board .winning-line {
+    position: absolute;
+    background-color: #ee7171;
+    height: 5px;
+    width: 0;
+    transition: width 2s;
+}
+
+.board .winning-line.diag-1 {
+    width: 400px;
+    transform: translate(-12px, 184px) rotate(45deg);
+}
+.board .winning-line.diag-2 {
+    width: 400px;
+    transform: translate(-16px, 175px) rotate(135deg);
+}
+
+.board .winning-line.hor-1 {
+    width: 360px;
+    transform: translateY(60px);
+}
+.board .winning-line.hor-2 {
+    width: 360px;
+    transform: translateY(180px);
+}
+.board .winning-line.hor-3 {
+    width: 360px;
+    transform: translateY(300px);
+}
+
+.board .winning-line.ver-1 {
+    width: 360px;
+    transform: rotate(90deg) translateX(178px) translateY(120px);
+}
+.board .winning-line.ver-2 {
+    width: 360px;
+    transform: rotate(90deg) translateX(178px);
+}
+.board .winning-line.ver-3 {
+    width: 360px;
+    transform: rotate(90deg) translateX(178px) translateY(-120px)
 }

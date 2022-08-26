@@ -30,8 +30,9 @@ const TicTacToe = () => {
 
     const getMessage = () => {
         if (!winner) return ''
-        return winner === 'x' ? 'You won!' : 
-            (winner === 'o' ? 'You lost!' : "It's a draw!")
+        return winner === 'x' ? <p class='winner'>You won!</p> : 
+            (winner === 'o' ? <p class='loser'>You lost!</p> :
+                <p class="draw">It's a draw!</p>)
     }
 
     return (

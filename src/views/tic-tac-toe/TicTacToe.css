@@ -16,12 +16,21 @@
 .tic-tac-toe .result p {
     margin: 0;
 }
+.tic-tac-toe .result p.winner {
+    color: #09b819;
+}
+.tic-tac-toe .result p.loser {
+    color: #c40000;
+}
+.tic-tac-toe .result p.draw {
+    color: #f58427;
+}
 
 .tic-tac-toe .result button {
     font-family: 'DataControl';
     width: 250px;
     height: 60px;
-    background-color: #09b819;
+    background-color: #ee7171;
     font-size: 24px;
     color: white;
     letter-spacing: 4px;
@@ -31,7 +40,7 @@
 }
 
 .tic-tac-toe .result button:not(.disabled):hover {
-    background-color: #078512;
+    background-color: #cc6060;
 }
 .tic-tac-toe .result button.disabled {
     background-color: #adadad;

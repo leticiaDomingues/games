@@ -4,13 +4,16 @@ import "./Board.css"
 const Board = props => {
     const {isGameOver, gameOver} = props
     const initialBoardState = [Array(3).fill(null), Array(3).fill(null), Array(3).fill(null)]
+
     const [board, setBoard] = useState(initialBoardState)
     const [currentUser, setCurrentUser] = useState('x')
+    const [winningLineClass, setWinningLineClass] = useState('')
 
     useEffect(() => {
         if (isGameOver) return
         setBoard([Array(3).fill(null), Array(3).fill(null), Array(3).fill(null)])
         setCurrentUser('x')
+        setWinningLineClass('')
     }, [isGameOver])
 
     const selectCell = (x, y) => {
@@ -31,17 +34,49 @@ const Board = props => {
         setCurrentUser(currentUser === 'x' ? 'o' : 'x')
     }
 
-    const isPlayerWinner = player => {
-        const horizontalWinner = board.some(r => r.every(cell => cell === player))
-        const verticalWinner = 
-            (board[0][0] === player && board[1][0] === player && board[2][0] === player) ||
-            (board[0][1] === player && board[1][1] === player && board[2][1] === player) ||
-            (board[0][2] === player && board[1][2] === player && board[2][2] === player)
-        const diagonalWinner = 
-            (board[0][0] === player && board[1][1] === player && board[2][2] === player) ||
-            (board[0][2] === player && board[1][1] === player && board[2][0] === player)
-        return horizontalWinner || verticalWinner || diagonalWinner
+    const isPlayerHorizontalWinner = (player) => {
+        if (board.some(r => r.every(cell => cell === player))) {
+            if (board[0].every(cell => cell === player))
+                setWinningLineClass('hor-1')
+            else if (board[1].every(cell => cell === player))
+                setWinningLineClass('hor-2')
+            else
+                setWinningLineClass('hor-3')
+            return true
+        }
+        return false
     }
+
+    const isPlayerVerticalWinner = (player) => {
+        if (board[0][0] === player && board[1][0] === player && board[2][0] === player) {
+            setWinningLineClass('ver-1')
+            return true
+        }
+        if (board[0][1] === player && board[1][1] === player && board[2][1] === player) {
+            setWinningLineClass('ver-2')
+            return true
+        }
+        if (board[0][2] === player && board[1][2] === player && board[2][2] === player) {
+            setWinningLineClass('ver-3')
+            return true
+        }
+        return false
+    }
+
+    const isPlayerDiagonalWinner = player => { 
+        if (board[0][0] === player && board[1][1] === player && board[2][2] === player) {
+            setWinningLineClass('diag-1')
+            return true
+        }
+        if (board[0][2] === player && board[1][1] === player && board[2][0] === player) {
+            setWinningLineClass('diag-2')
+            return true
+        }
+        return false
+    }
+
+    const isPlayerWinner = p => isPlayerHorizontalWinner(p) || isPlayerVerticalWinner(p) || isPlayerDiagonalWinner(p)
+
 
     useEffect(() => {
         if (currentUser === 'x' || isGameOver) return
@@ -61,6 +96,7 @@ const Board = props => {
 
     return (
         <section className="board">
+            <div className={`winning-line ${winningLineClass}`}/>
             <div className={`cell cell-1 ${getSelectedClass(0,0)}`} onClick={_ => selectCell(0,0)}></div>
             <div className={`cell cell-2 ${getSelectedClass(0,1)}`} onClick={_ => selectCell(0,1)}></div>
             <div className={`cell cell-3 ${getSelectedClass(0,2)}`} onClick={_ => selectCell(0,2)}></div>
