@@ -30,9 +30,9 @@ const TicTacToe = () => {
 
     const getMessage = () => {
         if (!winner) return ''
-        return winner === 'x' ? <p class='winner'>You won!</p> : 
-            (winner === 'o' ? <p class='loser'>You lost!</p> :
-                <p class="draw">It's a draw!</p>)
+        return winner === 'x' ? <p className='winner'>You won!</p> : 
+            (winner === 'o' ? <p className='loser'>You lost!</p> :
+                <p className="draw">It's a draw!</p>)
     }
 
     return (
@@ -42,7 +42,7 @@ const TicTacToe = () => {
             {
                 isGameOver ?
                     <div className="result">
-                        <p>{getMessage()}</p>
+                        {getMessage()}
                         <button onClick={playAgain}>Play again</button>
                     </div> :
                     <></>
